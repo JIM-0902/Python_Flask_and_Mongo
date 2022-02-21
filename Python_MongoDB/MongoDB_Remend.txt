@@ -1,0 +1,31 @@
+資料庫結構:MongoDB儲存資料的方式
+* 資料庫(Database)
+* 集合  (Collection)
+* 文件  (Document)
+
+文件資料儲存格式 使用JSON格式儲存資料
+
+會員資料範例
+{
+    "email":"test@test.com",
+    "password":"test"
+}
+
+取得新增資料的文件編號
+collection = db.website
+result = collection.insert_one({
+    "email":"test@test.com"
+})
+
+print(result.inserted_id)
+
+# 新增多筆資料
+集合.insert_many([文件資料,文件資料])
+
+collection = db.website
+collection.insert_many([{
+    "email":"test@test.com"
+},{
+    "email":"abc@abc.com"
+}
+])
